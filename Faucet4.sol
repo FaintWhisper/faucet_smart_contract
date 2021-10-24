@@ -36,8 +36,8 @@ contract Faucet {
     }
 
     // Give out ether to anyone who asks
-    function withdraw(uint withdraw_amount) public payable {
-        if (!alreadyRequested(msg.sender)) {
+    function withdraw(uint withdraw_amount) public {
+        if (alreadyRequested(msg.sender) == false) {
             // Limit withdrawal amount
             require(withdraw_amount <= 5 ether);
     
